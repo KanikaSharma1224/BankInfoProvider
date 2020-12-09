@@ -7,7 +7,10 @@ import io.bankbridge.error.BankInfoException;
 import io.bankbridge.error.ErrorHandler;
 
 public class JsonUtils {
-	private static ObjectMapper mapper = new ObjectMapper();
+	private static ObjectMapper mapper;
+
+	private JsonUtils() {
+	}
 
 	public static String toJson(Object ob) throws BankInfoException {
 		try {
@@ -18,6 +21,12 @@ public class JsonUtils {
 	}
 
 	public static ObjectMapper getObjectMapper() {
+		if (mapper == null) {
+			synchronized (JsonUtils.class) {
+				mapper = new ObjectMapper();
+				return mapper;
+			}
+		}
 		return mapper;
 	}
 

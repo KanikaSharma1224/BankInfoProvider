@@ -1,7 +1,7 @@
 package io.bankbridge.model;
 
 public class BankModel {
-	
+
 	public String bic;
 	public String name;
 	public String countryCode;
@@ -9,6 +9,13 @@ public class BankModel {
 
 	public BankModel() {
 
+	}
+
+	public BankModel(String bic, String name, String countryCode, String auth) {
+		this.bic = bic;
+		this.name = name;
+		this.countryCode = countryCode;
+		this.auth = auth;
 	}
 
 	public String getBic() {

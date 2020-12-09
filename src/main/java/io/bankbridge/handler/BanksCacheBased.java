@@ -31,9 +31,9 @@ import spark.Response;
 public class BanksCacheBased {
 
 	public static String handle(Request request, Response response) throws Exception {
-			Map<String, BankModel> result = BankInfoService.getBanks();
-			String resultAsString = JsonUtils.toJson(result);
-			return resultAsString;
+		List<BankModel> result = BankInfoService.getBanks();
+		String resultAsString = JsonUtils.toJson(result);
+		return resultAsString;
 	}
 
 }
